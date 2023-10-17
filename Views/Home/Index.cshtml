@@ -1,0 +1,37 @@
+﻿@using ToDo_List_With_MVC.ViewModel;
+@model ToDoViewModel
+
+<div class="row justify-content-center">
+    <div class="col-12">
+        <table class="table">
+            <thead>
+                <tr class="table-primary">
+                    <th scope="col">Id</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Created Time</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            @{
+                int count = 1;
+
+            }
+            <tbody>
+                @foreach (var t in Model.TodoList)
+                {
+
+                    <tr>
+                        <th class="todos-column" scope="row">@count</th>
+                        <td class="todos-column" scope="row">@t.Name</td>
+                        <td class="todos-column">@t.CreatedTime.ToString("dd.MM.yyyy")</td>
+                        <td class="buttons-column">
+                            <input type="submit" class="btn btn-danger" value="Delete" onClick="deleteTodo(@t.Id)" />
+                            <input type="submit" class="btn btn-primary" value="Update" onClick="populateForm(@t.Id)" />
+                        </td>
+                    </tr>
+                    count++;
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

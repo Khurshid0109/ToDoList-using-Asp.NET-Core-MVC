@@ -1,0 +1,25 @@
+﻿@using ToDo_List_With_MVC.ViewModel;
+@model ToDoViewModel
+<form asp-action="Insert" id="form-action" method="post" class="form-horizontal" role="form">
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <div class="row justify-content-center">
+        <div class="col-12">
+            <label asp-for="Todo.Name" class="form-label" style="color:white;font-weight:bold"></label>
+            <input asp-for="Todo.Id" type="hidden" class="form-control" />
+            <input asp-for="Todo.Name" class="form-control" />
+            <span asp-validation-for="Todo.Name" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row ">
+        <div class="col-6 mt-3 mb-3">
+            <input type="submit" id="form-button" class="btn btn-success btn-block" value="Add Todo" />
+        </div>
+        <div class="col-6 mt-3 mb-3">
+
+            <input type="submit" class="btn btn-danger btn-block" value="Delete all" onclick="deleteAllTodo()">
+
+        </div>
+    </div>
+
+</form>
